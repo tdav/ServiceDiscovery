@@ -1,7 +1,16 @@
-﻿
-using ServiceDiscovery;
+﻿using System;
+using System.Threading.Tasks;
 
-Console.WriteLine("Hello, World!");
+namespace ServiceDiscovery
+{
+    internal class Program
+    {
+        private static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
 
-var client = new SwaggerJsonReader();
-await client.GetDocument(); 
+            var client = new NSwag();
+            client.GetDocument().GetAwaiter().GetResult();
+        }
+    }
+}
