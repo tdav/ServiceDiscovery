@@ -59,7 +59,8 @@ namespace ServiceDiscovery
                 DisposeHttpClient = false,
                 UseHttpClientCreationMethod = true,
                 GenerateOptionalParameters = false,
-                OperationNameGenerator = new OperationNameGenerator()
+                
+               // OperationNameGenerator = new OperationNameGenerator(),
             };
 
 
@@ -72,19 +73,19 @@ namespace ServiceDiscovery
     }
 
 
-    public class OperationNameGenerator : IOperationNameGenerator
-    {
-        public bool SupportsMultipleClients => true;
+    //public class OperationNameGenerator : IOperationNameGenerator
+    //{
+    //    public bool SupportsMultipleClients => true;
 
-        public string GetClientName(OpenApiDocument document, string path, string httpMethod, OpenApiOperation operation)
-        {
-            var cn = path.Split('/');
-            return cn[0];
-        }
+    //    public string GetClientName(OpenApiDocument document, string path, string httpMethod, OpenApiOperation operation)
+    //    {
+    //        var cn = path.Split('/');
+    //        return cn[0];
+    //    }
 
-        public string GetOperationName(OpenApiDocument document, string path, string httpMethod, OpenApiOperation operation)
-        {
-            return path.Replace('/', '_');
-        }
-    }
+    //    public string GetOperationName(OpenApiDocument document, string path, string httpMethod, OpenApiOperation operation)
+    //    {
+    //        return path.Replace('/', '_');
+    //    }
+    //}
 }
